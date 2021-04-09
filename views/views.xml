@@ -14,6 +14,21 @@
     </field>
   </record>
 
+  <record id="saldoapp.view_tree_sa_movimiento" model="ir.ui.view">
+    <field name="name">view.tree.sa.movimiento</field>
+    <field name="model">sa.movimiento</field>
+    <field name="priority">1</field>
+    <field name="arch" type="xml">
+      <tree>
+        <field name="name" />
+        <field name="monto_total" />
+        <field name="tipo" />
+        <field name="fecha" />
+        <field name="moneda" />
+      </tree>
+    </field>
+  </record>
+
   <record id="saldoapp.action_view_sa_movimimento" model="ir.actions.act_window">
     <field name="name">Lista de Movimientos</field>
     <field name="res_model">sa.movimiento</field>
