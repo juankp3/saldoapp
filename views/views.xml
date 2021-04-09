@@ -16,23 +16,47 @@
     <field name="arch" type="xml">
       <form>
         <sheet>
-          <group>
             <group>
               <field name="name" />
               <field name="monto_total" />
               <field name="tipo" widget="radio" />
-              <field name="puntos" />
-            </group>
-            <group>
               <field name="fecha" />
-              <field name="moneda" />
-              <field name="categoria_id" domain="[['tipo', '=', tipo]]" widget="radio" />
             </group>
-          </group>
-          <group string="Adicional">
-              <field name="concepto" string="Concepro 123" />
-              <field name="comprobante" string="Comprobante 123" widget="image" options="{'width':'100px'}" />
-          </group>
+
+            <notebook>
+              <page string="Datos Básicos">
+                <group>
+                  <field name="puntos" />
+                  <field name="moneda" />
+                  <field name="categoria_id" domain="[['tipo', '=', tipo]]" widget="radio" />
+                </group>
+              </page>
+
+              <page string="Adicionales">
+                <group string="Adicional">
+                    <field name="concepto" string="Concepro 123" />
+                    <!--
+                    <field name="comprobante" string="Comprobante 123"
+                            widget="image"
+                            attrs="{' ':[['tipo','=','I']]}"/>
+                      -->
+                    <!---
+                    <field name="comprobante" string="Comprobante 123"
+                            widget="image"
+                            attrs="{'required':[['tipo','=','I']]}"/>
+                      -->
+                      <!--
+                    <field name="concepto" string="Concepto"
+                            attrs="{'readonly':[['tipo','=','E']]}"/>
+                          -->
+                    <field name="comprobante" string="Comprobante 123"
+                            widget="image"
+                            options="{'width':'100px'}"
+                            attrs="{'readonly':[['tipo','=','E']],'required':[['tipo','=','I']]}"/>
+                </group>
+              </page>
+
+            </notebook>
         </sheet>
       </form>
     </field>
@@ -43,13 +67,23 @@
     <field name="model">sa.movimiento</field>
     <field name="priority">1</field>
     <field name="arch" type="xml">
-      <tree>
+      <!--
+        decoration-bf - shows the line in BOLD
+        decoration-it - shows the line in ITALICS
+        decoration-danger - shows the line in LIGHT RED
+        decoration-info - shows the line in LIGHT BLUE
+        decoration-muted - shows the line in LIGHT GRAY
+        decoration-primary - shows the line in LIGHT PURPLE
+        decoration-success - shows the line in LIGHT GREEN
+        decoration-warning - shows the line in LIGHT BROWN
+      -->
+      <tree decoration-info="tipo == 'I'" decoration-warning="tipo=='E'">
         <field name="name" />
         <field name="monto_total" />
         <field name="tipo" />
         <field name="fecha" />
         <field name="moneda" />
-        <field name="categoria_id" />
+        <field name="categoria_id" string="Categoria" />
       </tree>
     </field>
   </record>
