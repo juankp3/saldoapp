@@ -52,7 +52,8 @@
                     <field name="comprobante" string="Comprobante 123"
                             widget="image"
                             options="{'width':'100px'}"
-                            attrs="{'readonly':[['tipo','=','E']],'required':[['tipo','=','I']]}"/>
+                            attrs="{'readonly':[['tipo','=','E']],'required':[['tipo','=','I']]}"
+                            style="width: 265px; height: 300px;"/>
                 </group>
               </page>
 
@@ -88,6 +89,19 @@
     </field>
   </record>
 
+  <!--VISTE SEARCH-->
+
+  <record id="saldoapp.view_search_sa_movimiento" model="ir.ui.view">
+    <field name="name">view.search.sa.movimiento</field>
+    <field name="model">sa.movimiento</field>
+    <field name="arch" type="xml">
+      <search>
+        <field name="name" string="Nombre"/>
+        <field name="categoria_id" string="Categoria"/>
+      </search>
+    </field>
+  </record>
+
   <record id="saldoapp.view_tree_sa_categoria" model="ir.ui.view">
     <field name="name">view.tree.sa.categoria</field>
     <field name="model">sa.categoria</field>
@@ -101,10 +115,29 @@
     </field>
   </record>
 
+  <!--ACCIÓN DE VENTANA: MOVIMIENTO-->
   <record id="saldoapp.action_view_sa_movimimento" model="ir.actions.act_window">
     <field name="name">Lista de Movimientos</field>
     <field name="res_model">sa.movimiento</field>
     <field name="view_mode">tree,form</field>
+  </record>
+
+  <!--ACCIÓN DE VENTANA: INGRESOS-->
+  <record id="saldoapp.action_view_sa_movimimento_ingresos" model="ir.actions.act_window">
+    <field name="name">Ingresos</field>
+    <field name="res_model">sa.movimiento</field>
+    <field name="view_mode">tree,form</field>
+    <field name="context">{'default_name':'Ingreso:','default_tipo':'I'}</field>
+    <field name="domain">[('tipo','=','I')]</field>
+  </record>
+
+  <!--ACCIÓN DE VENTANA: EGRESOS-->
+  <record id="saldoapp.action_view_sa_movimimento_egresos" model="ir.actions.act_window">
+    <field name="name">Egresos</field>
+    <field name="res_model">sa.movimiento</field>
+    <field name="view_mode">tree,form</field>
+    <field name="context">{'default_name':'Egreso:','default_tipo':'E'}</field>
+    <field name="domain">[('tipo','=','E')]</field>
   </record>
 
 
@@ -122,11 +155,25 @@
     <field name="name">Saldo App</field>
   </record>
 
+
+  <!--SUBMENU MOVIMIENTO-->
   <record id="saldoapp.menu_movimiento" model="ir.ui.menu">
     <field name="name">Movimientos</field>
-    <field name="action" ref="saldoapp.action_view_sa_movimimento" />
-    <field name="parent_id" ref="saldoapp.menu_saldoapp" />
+    <field name="parent_id" ref="saldoapp.menu_saldoapp"/>
   </record>
+  <!--SUBSUBMENU: INGRESOS-->
+  <record id="saldoapp.menu_ingresos" model="ir.ui.menu">
+    <field name="name">Ingresos</field>
+    <field name="action" ref="saldoapp.action_view_sa_movimimento_ingresos"/>
+    <field name="parent_id" ref="saldoapp.menu_movimiento"/>
+  </record>
+  <!--SUBSUBMENU: EGRESOS>-->
+  <record id="saldoapp.menu_egresos" model="ir.ui.menu">
+    <field name="name">Egresos</field>
+    <field name="action" ref="saldoapp.action_view_sa_movimimento_egresos"/>
+    <field name="parent_id" ref="saldoapp.menu_movimiento"/>
+  </record>
+
 
   <record id="saldoapp.menu_categoria" model="ir.ui.menu">
     <field name="name">Categorias</field>
