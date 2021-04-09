@@ -39,7 +39,7 @@ docker exec -it odoodocker_odoo10_1 /usr/bin/odoo scaffold  saldoapp /mnt/extra-
 
 
 > Ingrea al a la base de datos de postgres
-```
+```sql
 su - postgres
 psql -U odoo -d odoo
 select name,email,create_date from res_partner;
@@ -49,4 +49,9 @@ select name,email,create_date from res_partner;
 > Reiniciar contenedor
 ```
 docker restart odoodocker_odoo10_1
+```
+
+> Lista todas las vistas
+```sql
+select name,type,model from ir_ui_view;
 ```

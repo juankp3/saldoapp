@@ -1,59 +1,28 @@
 <odoo>
-  <data>
-    <!-- explicit list view definition -->
-    <!--
-    <record model="ir.ui.view" id="saldoapp.list">
-      <field name="name">saldoapp list</field>
-      <field name="model">saldoapp.saldoapp</field>
-      <field name="arch" type="xml">
-        <tree>
-          <field name="name"/>
-          <field name="value"/>
-          <field name="value2"/>
-        </tree>
-      </field>
-    </record>
-    -->
+  <record id="saldoapp.view_form_sa_movimiento" model="ir.ui.view">
+    <field name="name">view.form.sa.movimiento</field>
+    <field name="model">sa.movimiento</field>
+    <field name="priority">1</field>
+    <field name="arch" type="xml">
+      <form>
+        <field name="name" />
+        <field name="monto_total" />
+        <field name="tipo" />
+        <field name="fecha" />
+        <field name="moneda" />
+      </form>
+    </field>
+  </record>
 
-    <!-- actions opening views on models -->
-    <!--
-    <record model="ir.actions.act_window" id="saldoapp.action_window">
-      <field name="name">saldoapp window</field>
-      <field name="res_model">saldoapp.saldoapp</field>
-      <field name="view_mode">tree,form</field>
-    </record>
-    -->
+  <record id="saldoapp.action_view_sa_movimimento" model="ir.actions.act_window">
+    <field name="name">Lista de Movimientos</field>
+    <field name="res_model">sa.movimiento</field>
+    <field name="view_mode">tree,form</field>
+  </record>
 
-    <!-- server action to the one above -->
-    <!--
-    <record model="ir.actions.server" id="saldoapp.action_server">
-      <field name="name">saldoapp server</field>
-      <field name="model_id" ref="model_saldoapp_saldoapp"/>
-      <field name="code">
-        action = {
-          "type": "ir.actions.act_window",
-          "view_mode": "tree,form",
-          "res_model": self._name,
-        }
-      </field>
-    </record>
-    -->
+  <record id="saldoapp.menu_saldoapp" model="ir.ui.menu">
+    <field name="name">Saldo App</field>
+    <field name="action" ref="saldoapp.action_view_sa_movimimento" />
+  </record>
 
-    <!-- Top menu item -->
-    <!--
-    <menuitem name="saldoapp" id="saldoapp.menu_root"/>
-    -->
-    <!-- menu categories -->
-    <!--
-    <menuitem name="Menu 1" id="saldoapp.menu_1" parent="saldoapp.menu_root"/>
-    <menuitem name="Menu 2" id="saldoapp.menu_2" parent="saldoapp.menu_root"/>
-    -->
-    <!-- actions -->
-    <!--
-    <menuitem name="List" id="saldoapp.menu_1_list" parent="saldoapp.menu_1"
-              action="saldoapp.action_window"/>
-    <menuitem name="Server to list" id="saldoapp" parent="saldoapp.menu_2"
-              action="saldoapp.action_server"/>
-    -->
-  </data>
 </odoo>
