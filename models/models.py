@@ -22,8 +22,10 @@ class Movimiento(models.Model):
     tipo = fields.Selection(string="Tipo",selection=[('I','Ingreso'),("E","Egreso")],default="I",required=True)
     fecha = fields.Date(string="Fecha de Operción")
     moneda = fields.Selection(string="Moneda",selection=[("PEN","Soles"),("USD","Dólares")])
-
     categoria_id = fields.Many2one("sa.categoria")
+
+    concepto = fields.Html(string="Concepto")
+    comprobante = fields.Binary(string="Comprobante")
 
 class Categoria(models.Model):
     _name = "sa.categoria"

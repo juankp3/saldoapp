@@ -28,6 +28,10 @@
               <field name="categoria_id" domain="[['tipo', '=', tipo]]" widget="radio" />
             </group>
           </group>
+          <group string="Adicional">
+              <field name="concepto" string="Concepro 123" />
+              <field name="comprobante" string="Comprobante 123" widget="image" options="{'width':'100px'}" />
+          </group>
         </sheet>
       </form>
     </field>
