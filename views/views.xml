@@ -1,4 +1,14 @@
 <odoo>
+  <!--
+  Aprender su nombre y uso
+    Model:
+    ir.ui.view
+    ir.actions.act_window
+    ir.ui.menu
+  -->
+
+  <!-- Movimiento -->
+
   <record id="saldoapp.view_form_sa_movimiento" model="ir.ui.view">
     <field name="name">view.form.sa.movimiento</field>
     <field name="model">sa.movimiento</field>
@@ -43,9 +53,31 @@
     <field name="view_mode">tree,form</field>
   </record>
 
+
+  <!-- Categoria -->
+  <record id="saldoapp.action_view_sa_categoria" model="ir.actions.act_window">
+    <field name="name">Categorias</field>
+    <field name="res_model">sa.categoria</field>
+    <field name="view_mode">tree</field>
+  </record>
+
+
+  <!-- Menu -->
+
   <record id="saldoapp.menu_saldoapp" model="ir.ui.menu">
     <field name="name">Saldo App</field>
+  </record>
+
+  <record id="saldoapp.menu_movimiento" model="ir.ui.menu">
+    <field name="name">Movimientos</field>
     <field name="action" ref="saldoapp.action_view_sa_movimimento" />
+    <field name="parent_id" ref="saldoapp.menu_saldoapp" />
+  </record>
+
+  <record id="saldoapp.menu_categoria" model="ir.ui.menu">
+    <field name="name">Categorias</field>
+    <field name="action" ref="saldoapp.action_view_sa_categoria" />
+    <field name="parent_id" ref="saldoapp.menu_saldoapp" />
   </record>
 
 </odoo>
