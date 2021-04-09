@@ -20,12 +20,12 @@
             <group>
               <field name="name" />
               <field name="monto_total" />
-              <field name="tipo" />
+              <field name="tipo" widget="radio" />
             </group>
             <group>
               <field name="fecha" />
               <field name="moneda" />
-              <field name="categoria_id" />
+              <field name="categoria_id" domain="[['tipo', '=', tipo]]" widget="radio" />
             </group>
           </group>
         </sheet>

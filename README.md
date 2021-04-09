@@ -5,6 +5,7 @@
 
 > Ingrea al conenedor de la base de datos
 ```
+docker exec -it [contenedor] bash
 docker exec -it odoodocker_odoo10_1 bash
 ```
 
@@ -12,7 +13,8 @@ docker exec -it odoodocker_odoo10_1 bash
 
 Crea una estructura de carpetas del modulo **saldoapp**
 ```
-docker exec -it odoodocker_odoo10_1 /usr/bin/odoo scaffold  saldoapp /mnt/extra-addons
+docker exec -it [contenedor] /usr/bin/odoo scaffold [odoo_module] /mnt/extra-addons
+docker exec -it odoodocker_odoo10_1 /usr/bin/odoo scaffold saldoapp /mnt/extra-addons
 ```
 ```
 ├── README.md
@@ -59,4 +61,10 @@ select name,type,model from ir_ui_view;
 > Registra permiso de forma manual para visualizar el menu de Saldo App
 ```
 Groups / Administration / Settings
+```
+
+> Actualiza el modulo sin necesidad de hacerlo por la web
+```
+docker exec -it [contenedor] /usr/bin/odoo -d [database] -u [odoo_module]
+docker exec -it odoodocker_odoo10_1 /usr/bin/odoo -d odoo -u saldoapp
 ```
