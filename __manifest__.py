@@ -27,6 +27,7 @@
         # 'security/ir.model.access.csv',
         'views/views.xml',
         'views/templates.xml',
+        'views/view_res_parnet.xml',
         'data/records_movimiento.xml',
         'data/categoria.xml'
     ],
