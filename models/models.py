@@ -26,6 +26,7 @@ class Movimiento(models.Model):
 
     concepto = fields.Html(string="Concepto")
     comprobante = fields.Binary(string="Comprobante")
+    puntos = fields.Integer("Puntos",related="categoria_id.puntos")
 
 class Categoria(models.Model):
     _name = "sa.categoria"
@@ -35,3 +36,4 @@ class Categoria(models.Model):
     nombre = fields.Char(string="Nombre")
     tipo = fields.Selection(string="Tipo",selection=[('I','Ingreso'),("E","Egreso")])
     active = fields.Boolean(string="Activo",default=True)
+    puntos = fields.Integer("Puntos")

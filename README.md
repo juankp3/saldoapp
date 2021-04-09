@@ -68,3 +68,15 @@ Groups / Administration / Settings
 docker exec -it [contenedor] /usr/bin/odoo -d [database] -u [odoo_module]
 docker exec -it odoodocker_odoo10_1 /usr/bin/odoo -d odoo -u saldoapp
 ```
+
+docker exec -it  odoodocker_db_1 /usr/bin/odoo shell -d odoo -u saldoapp --http-port 8776 --longpolling-port 8763
+docker exec -it  odoodocker_odoo10_1 /usr/bin/odoo shell -d odoo -u saldoapp --http-port 8776 --longpolling-port 8763
+
+
+docker exec -it odoodocker_odoo10_1 /usr/bin/odoo shell -d odoo -u saldoapp --longpolling-port 8763
+
+> Login de Odoo
+```
+Usuario: admin
+Contraseña: admin
+```

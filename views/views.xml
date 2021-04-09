@@ -21,6 +21,7 @@
               <field name="name" />
               <field name="monto_total" />
               <field name="tipo" widget="radio" />
+              <field name="puntos" />
             </group>
             <group>
               <field name="fecha" />
@@ -49,6 +50,19 @@
         <field name="fecha" />
         <field name="moneda" />
         <field name="categoria_id" />
+      </tree>
+    </field>
+  </record>
+
+  <record id="saldoapp.view_tree_sa_categoria" model="ir.ui.view">
+    <field name="name">view.tree.sa.categoria</field>
+    <field name="model">sa.categoria</field>
+    <field name="priority">1</field>
+    <field name="arch" type="xml">
+      <tree>
+        <field name="nombre" />
+        <field name="puntos" />
+        <field name="active" />
       </tree>
     </field>
   </record>
