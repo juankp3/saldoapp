@@ -55,3 +55,8 @@ docker restart odoodocker_odoo10_1
 ```sql
 select name,type,model from ir_ui_view;
 ```
+
+> Registra permiso de forma manual para visualizar el menu de Saldo App
+```
+Groups / Administration / Settings
+```
