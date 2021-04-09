@@ -26,7 +26,7 @@ class Movimiento(models.Model):
 class Categoria(models.Model):
     _name = "sa.categoria"
     _description = "Categoria"
-    # _rec_name = "nombre"
+    _rec_name = "nombre"
 
     nombre = fields.Char(string="Nombre")
     tipo = fields.Selection(string="Tipo",selection=[('I','Ingreso'),("E","Egreso")])

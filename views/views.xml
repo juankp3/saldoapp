@@ -58,7 +58,7 @@
   <record id="saldoapp.action_view_sa_categoria" model="ir.actions.act_window">
     <field name="name">Categorias</field>
     <field name="res_model">sa.categoria</field>
-    <field name="view_mode">tree</field>
+    <field name="view_mode">tree,form</field>
   </record>
 
 
