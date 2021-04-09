@@ -23,6 +23,8 @@ class Movimiento(models.Model):
     fecha = fields.Date(string="Fecha de Operción")
     moneda = fields.Selection(string="Moneda",selection=[("PEN","Soles"),("USD","Dólares")])
 
+    categoria_id = fields.Many2one("sa.categoria")
+
 class Categoria(models.Model):
     _name = "sa.categoria"
     _description = "Categoria"
