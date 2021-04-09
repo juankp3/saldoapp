@@ -5,11 +5,19 @@
     <field name="priority">1</field>
     <field name="arch" type="xml">
       <form>
-        <field name="name" />
-        <field name="monto_total" />
-        <field name="tipo" />
-        <field name="fecha" />
-        <field name="moneda" />
+        <sheet>
+          <group>
+            <group>
+              <field name="name" />
+              <field name="monto_total" />
+              <field name="tipo" />
+            </group>
+            <group>
+              <field name="fecha" />
+              <field name="moneda" />
+            </group>
+          </group>
+        </sheet>
       </form>
     </field>
   </record>
