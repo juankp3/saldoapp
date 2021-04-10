@@ -3,7 +3,7 @@
 ## Target Commons ##
 
 clear: ## Borra archivos generados
-	rm controllers/__init__.pyc controllers/controllers.pyc models/__init__.pyc models/models.pyc
+	rm controllers/*.pyc controllers/*.pyc models/*.pyc models/*.pyc
 
 restart: ## Actualiza el modulo saldoapp
 	docker exec -it odoodocker_odoo10_1 /usr/bin/odoo -d odoo -u saldoapp

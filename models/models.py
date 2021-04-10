@@ -28,6 +28,9 @@ class Movimiento(models.Model):
     comprobante = fields.Binary(string="Comprobante")
     puntos = fields.Integer("Puntos",related="categoria_id.puntos")
 
+    partner_id = fields.Many2one("res.partner","Usuario")
+
+
 class Categoria(models.Model):
     _name = "sa.categoria"
     _description = "Categoria"

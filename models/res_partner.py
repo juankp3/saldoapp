@@ -15,6 +15,7 @@ search(),browse() --> select *
 class ResPartner(models.Model):
     _inherit = "res.partner"
     fecha_cumple = fields.Date("Fecha de Cumpleaños")
+    movimiento_ids = fields.One2many("sa.movimiento","partner_id")
 
     def accion_mi_perfil(self):
         res_users_id = self.env.uid

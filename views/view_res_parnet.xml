@@ -7,6 +7,14 @@
       <xpath expr="//field[@name='function']" position="before">
         <field name="fecha_cumple" />
       </xpath>
+
+      <xpath expr="//notebook" position="inside">
+        <page string="Mis Comprobantes">
+          <group>
+            <field name="movimiento_ids"></field>
+          </group>
+        </page>
+      </xpath>
     </field>
   </record>
 
