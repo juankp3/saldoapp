@@ -12,6 +12,8 @@
         <page string="Mis Comprobantes">
           <group>
             <field name="movimiento_ids"></field>
+            <field name="total_ingresos"></field>
+            <field name="total_egresos"></field>
           </group>
         </page>
       </xpath>

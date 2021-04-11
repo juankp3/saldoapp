@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 
 from odoo import models, fields, api
+from odoo.exceptions import UserError, ValidationError
+
 
 """
 Clase models.Model
@@ -35,6 +37,18 @@ class Movimiento(models.Model):
 
     partner_id = fields.Many2one("res.partner","Usuario",default=get_partner)
 
+    """
+    El self no necesariamente representa un solo registro
+    caso 1: para un formulario, self si representa a un registro, y es el que se muestra en el form
+    caso 2: para una lista, self representa a todos los registros de la lista.(para validar se debe iterar sobre cada uno de los registros)
+    """
+    @api.constrains('monto_total')
+    def validar_monto(self):
+        for record in self:
+            if record.monto_total<=0 :
+                raise ValidationError("El monto total debe ser mayor a Cero")
+            if record.monto_total>1000000:
+                raise ValidationError("El monto total debe ser menor a un millón")
 
 
 class Categoria(models.Model):
