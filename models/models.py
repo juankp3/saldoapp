@@ -28,7 +28,13 @@ class Movimiento(models.Model):
     comprobante = fields.Binary(string="Comprobante")
     puntos = fields.Integer("Puntos",related="categoria_id.puntos")
 
-    partner_id = fields.Many2one("res.partner","Usuario")
+    def get_partner(self):
+        res_users_id = self.env.uid
+        res_users_obj = self.env["res.users"].search([["id","=",res_users_id]])
+        return res_users_obj.partner_id.id
+
+    partner_id = fields.Many2one("res.partner","Usuario",default=get_partner)
+
 
 
 class Categoria(models.Model):

@@ -34,7 +34,8 @@
 
               <page string="Adicionales">
                 <group string="Adicional">
-                    <field name="concepto" string="Concepro 123" />
+                    <field name="partner_id"/>
+                    <field name="concepto" string="concepto 123" />
                     <!--
                     <field name="comprobante" string="Comprobante 123"
                             widget="image"
